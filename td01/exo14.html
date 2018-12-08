@@ -1,0 +1,77 @@
+<!-- KIT DE SURVIE JS - IUT INFORMATIQUE BORDEAUX -->
+<!DOCTYPE html>
+<head>
+ 
+    <meta charset="utf-8" />
+ 
+    <title>Exercice 14</title>
+    <meta name="description" content="Description de la page">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+
+    <style>
+    	body{ font-family: 'Quicksand', sans-serif; }
+         
+	</style>
+
+    <script src="jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+    	$(document).ready(function(){
+    		// Ecrire les scripts ici
+
+
+
+			$('form').submit(function(e){
+
+				var nom = $(this).children('input[name=nom]').val();
+				console.log(nom);
+				var prenom = $(this).children('input[name=prenom]').val();
+				console.log(prenom);
+				var age = $(this).children('input[name=age]').val();
+				console.log(age);
+				var sexe = $(this).children('select[name=sexe]').val();
+				console.log(sexe);
+				var description = $(this).children('textarea[name=description]').val();
+				console.log(description);
+
+				var user = new Object();
+				user.nom = nom;
+				user.prenom = prenom;
+				user.age = age;
+				user.sexe = sexe;
+				user.description = description;
+
+				
+				console.log(user);
+				return false;
+			});
+
+
+    	});
+   	</script>
+</head>
+<body>
+
+	<div class="formulaire">
+		<h4>Un formulaire</h4>
+		<form action="#">
+			<input type="text" name="nom" placeholder="Nom" value="Dupont" />
+			<br />
+			<input type="text" name="prenom" placeholder="Prénom" />
+			<br />
+			<input type="number" name="age" placeholder="Age" />
+			<br />
+			<label for="sexe">sexe</label><br />
+			<select name="sexe" id="sexe">
+				<option>M</option>
+				<option>F</option>
+			</select>
+            <br />
+            <textarea name="description"> Description </textarea>
+			<br />
+			<input type="submit" />
+		</form>
+	</div>
+</body>
+ 
+
+</html>		
