@@ -5,7 +5,7 @@
   <script type="text/javascript">
     function TodoCtrl($scope) {
         $scope.total = function () {
-            return $scope.x + $scope.y;
+            return $scope.number1 + $scope.number2;
         };
 
     }
@@ -14,13 +14,15 @@
 <body>
 
 
-<div ng-app="">
-<p>nombre1: <input type="number" ng-model="number1"></p>
-<p>nombre2: <input type="number" ng-model="number2"></p>
-<p>operateur: <select name="operateur" id="operateur"  ng-model="operateur"><option>+</option><option>-</option><option>X</option></select></p>
 
-<p> <p ng-bind="number1" > </p> <p ng-bind="operateur" > </p> <p ng-bind="number2"></p> =  <input type="text" value="{{total()}}"/></p>
-<pre>myStyle={{myStyle}}</pre>
+
+<div ng-app>  
+        <input ng-model="first"  placeholder="First number"  type="text" />
+        <input ng-model="second" placeholder="Second number" type="text" />
+        <p>operateur: <select name="operateur" id="operateur"  ng-model="operateur"><option>+</option><option>-</option><option>X</option></select></p>
+        <h1> Sum: {{first--second}}! </h1>
+      </div>
+
 
 
 </div>
