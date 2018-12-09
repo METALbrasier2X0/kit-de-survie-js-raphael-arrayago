@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="test">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js">
+</script>
+  <script type="text/javascript">
+
+  var app = angular.module('test', [])
+        app.controller('TestCtrl', function ($scope, $http) {
+            $http.get("https://raw.githubusercontent.com/fanzeyi/Pokemon-DB/master/pokedex.json").then(function(res,status,xhr) {
+                $scope.data = res.data;
+            });
+        });
+
+</script>
+
+<body ng-controller="TestCtrl">
+        <div ng-repeat="item in data">
+          {{item.ename}}
+        </div>
+      </body>
+      
+</html>

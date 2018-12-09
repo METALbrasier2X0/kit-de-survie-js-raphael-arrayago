@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js">
+</script>
+  <script type="text/javascript">
+    function TodoCtrl($scope) {
+        $scope.total = function () {
+            return $scope.x + $scope.y;
+        };
+
+    }
+    
+</script>
+<body>
+
+
+<div ng-app="">
+<p>nombre1: <input type="number" ng-model="number1"></p>
+<p>nombre2: <input type="number" ng-model="number2"></p>
+<p>operateur: <select name="operateur" id="operateur"  ng-model="operateur"><option>+</option><option>-</option><option>X</option></select></p>
+
+<p> <p ng-bind="number1" > </p> <p ng-bind="operateur" > </p> <p ng-bind="number2"></p> =  <input type="text" value="{{total()}}"/></p>
+<pre>myStyle={{myStyle}}</pre>
+
+
+</div>
+</body>
+</html>
