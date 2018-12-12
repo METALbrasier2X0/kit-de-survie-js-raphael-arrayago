@@ -1,19 +1,59 @@
 <!DOCTYPE html>
-<html>
-        <head>
+<head>
  
-                <meta charset="utf-8" />
-             
-                <title>Exercice 08</title>
-                <meta name="description" content="Description de la page">
+    <meta charset="utf-8" />
+ 
+    <title>Exercice 08</title>
+    <meta name="description" content="Description de la page">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="jquery-3.2.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
 
-                </head>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js">
+                $('#todo').html("todo");
+                localStorage.content = $('#todo').html();
+                $('#todo').html(localStorage.content);
+                var id = 0
+
+                 $('form').submit(function(){
+                        id = id + 1
+                        console.log(id)
+                        var contenu = $(this).children('input[name=contenu]').val();
+                        console.log(contenu);
+                        $('#list').append('<li id = "todo"> '+contenu+' </li>')
+                        $("#contenu").val('');
+                        return false;
+                });
+
+
+                   $( function() {
+                        $( "#list" ).sortable({
+                                 revert: true
+                        });
+                        $( "#draggable" ).draggable({
+                                connectToSortable: "#list",
+                                helper: "clone",
+                                revert: "invalid"
+                        });
+                        $( "ul, li" ).disableSelection();
+                } );
+        });
 </script>
-<body>
 
-    
-        
+
+<form action="#">
+<input type="text" placeholder="Contenu" id="contenu" name="contenu" />
+<br />
+<input type="submit" value="Ajouter" />
+</form>
+
+<h2>To do list</h2>
+<ol id="list">
+
+</ol>
 
 </body>
 </html>
