@@ -1,36 +1,37 @@
-<!DOCTYPE html>
+<!doctype html>
+<html lang="en">
 <head>
+  <meta charset="utf-8">
+  <title>Exercice 07</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    var availableTags = [
+      "Pomme",
+      "Poire",
+      "kiwa",
+      "Citron",
+      "Fraise",
+      "Framboise",
+      "marron"
+    ];
+    $( "#tags" ).autocomplete({
+      source: availableTags
+    });
+  } );
+  </script>
+</head>
+<body>
  
-    <meta charset="utf-8" />
+<div class="ui-widget">
+  <label for="tags">Tags: </label>
+  <input id="tags">
+</div>
  
-    <title>Titre de la page</title>
-    <meta name="description" content="Description de la page">
-    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-    <script src="jquery-3.2.1.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-
-                 $('form').submit(function(){
-                         
-                        var contenu = $(this).children('input[id=contenu]').val();
-                        console.log('contenu');
-
-
-                });
-        });
-</script>
-
-
-<form>
-<input type="text" placeholder="Contenu" id="contenu" name="contenu" />
-<br />
-<input type="submit" value="Ajouter" />
-</form>
-
-
-<ol class="list">
-
-</ol>
-
+ 
 </body>
 </html>
