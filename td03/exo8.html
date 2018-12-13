@@ -16,15 +16,16 @@
                 $('#todo').html("todo");
                 localStorage.content = $('#todo').html();
                 $('#todo').html(localStorage.content);
-                var id = 0
-
                  $('form').submit(function(){
-                        id = id + 1
-                        console.log(id)
                         var contenu = $(this).children('input[name=contenu]').val();
                         console.log(contenu);
                         $('#list').append('<li id = "todo"> '+contenu+' </li>')
                         $("#contenu").val('');
+                        var listContents = [];
+                        $("ol").each(function(){
+                        listContents.push(this.innerHTML);
+                        })
+                        localStorage.setItem('todoList', JSON.stringify(listContents));
                         return false;
                 });
 
@@ -40,6 +41,24 @@
                         });
                         $( "ul, li" ).disableSelection();
                 } );
+
+                $("#clearAll").click(function(e) {
+                       $("ol").empty() 
+                       localStorage.clear();
+                        location.reload();
+                });
+
+loadToDo();
+
+function loadToDo() {
+  if (localStorage.getItem('todoList')){
+      var listContents = JSON.parse(localStorage.getItem('todoList'));
+      $("ol").each(function(i){
+        this.innerHTML = listContents [i];
+      })
+  }
+}
+                
         });
 </script>
 
@@ -48,6 +67,7 @@
 <input type="text" placeholder="Contenu" id="contenu" name="contenu" />
 <br />
 <input type="submit" value="Ajouter" />
+<input type="button" value="clearAll" id="clearAll" />
 </form>
 
 <h2>To do list</h2>
