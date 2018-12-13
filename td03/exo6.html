@@ -47,16 +47,20 @@ name="myForm" novalidate>
 
 <div ng:controller="PasswordController">
                 <p>Mot-de-passe:</p>
-                <input type="password" name="password" placeholder="entrez le Mot-de-passe" />
+                <input type="password" name="password" placeholder="entrez le Mot-de-passe" ng-model="Password" />
                 <span class="strength" ng:class="strength">Ce  Mot-de-passe est {{strength}} !</span><br />
                 <input type="checkbox" name="showPwd"> Montrer le Mot-de-passe:
                 <span ng:show="showPwd">{{password}}</span>
 
-                <p>Confirmez votre Mot-de-passe:<br>
-                        <input type="password" name="confirm" ng-model="confirm" required>
-                        <span>{{confirm}}</span>
-                        </p>
-            </div>
+           
+                <p>Confirmez le Mot-de-passe:</p>
+                <input type="password" name="confirmPassword" 
+                ng-model="Password"/>
+                <span style="color:red" ng-show="myForm.confirmPassword =! myForm.Password">
+                 <span ng-show="myForm.confirmPassword.$error.required">Incorrect.</span>
+                     
+
+
 
 
 
@@ -74,7 +78,8 @@ app.controller('validateCtrl', function($scope) {
     $scope.nom = 'lizarazu'
     $scope.email = 'toto@wanadoo.com';
     $scope.tel = '0600000000';
-    $scope.confirm='';
+    $scope.Password='';
+    $scope.confirmPassword='';
 });
 
 var SERVICE_URL = 'http://angularjs.org/generatePassword.php' + '?callback=JSON_CALLBACK';
@@ -97,11 +102,10 @@ function PasswordController($xhr) {
 
 
 
+
 }
 
 
 
 </script>
-
-</body>
 </html>
